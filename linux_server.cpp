@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
 
 
      	// This send() function sends the 13 bytes of the string to the new socket
-     	send(newsockfd, "Hello, world!\n", 13, 0);
+     	send(newsockfd, "Data recieved by remote server\n", 32, 0);
 
      	bzero(buffer,4096);
 
