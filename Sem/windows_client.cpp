@@ -73,15 +73,15 @@ int main(int argc, char *argv[])
 	//char buffer[256];
 	//char buffer[131072];
 	char buffer[4096];
-	if (argc < 3) {
-		fprintf(stderr, "usage %s hostname port\n", argv[0]);
-		exit(0);
-	}
-	portno = atoi(argv[2]);
+	//if (argc < 3) {
+	//	fprintf(stderr, "usage %s hostname port\n", argv[0]);
+	//	exit(0);
+	//}
+	portno = 4444;
 	sockfd = socket(AF_INET, SOCK_STREAM, 0);
 	if (sockfd < 0)
 		error("ERROR opening socket");
-	server = gethostbyname(argv[1]);
+	server = gethostbyname("192.168.1.36");
 	if (server == NULL) {
 		fprintf(stderr, "ERROR, no such host\n");
 		exit(0);
@@ -94,9 +94,9 @@ int main(int argc, char *argv[])
 	serv_addr.sin_port = htons(portno);
 	if (connect(sockfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0)
 		error("ERROR connecting");
-	printf("Please enter the message: ");
+	//printf("Please enter the message: ");
 	bzero(buffer, 256);
-	fgets(buffer, 255, stdin);
+	//fgets(buffer, 255, stdin);
 	//n = send(sockfd, buffer, strlen(buffer), 0);
 	n = send(sockfd, info_buffer, strlen(info_buffer), 0);
 
