@@ -84,7 +84,10 @@ int main(int argc, char *argv[])
         	error("ERROR on accept");
 		}
 
-
+		printf("Client length: %i \n", clilen));
+		printf("Hex: %s \n", cli_addr.sin_addr);
+		printf("IP: %s \n", inet_ntoa(cli_addr.sin_addr));
+		
 		/////////////////////
 		FILE *file_ptr;
 		file_ptr = fopen("connections.txt", "a");    // Saves all connections to .txt file!"
