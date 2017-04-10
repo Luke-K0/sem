@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 	while(1)
 	{
     	// The accept() call actually accepts an incoming connection
-    	clilen = sizeof(clilen);
+    	clilen = sizeof(cli_addr);
 
     	// This accept() function will write the connecting client's address info 
      	// into the the address structure and the size of that structure is clilen.
@@ -83,10 +83,6 @@ int main(int argc, char *argv[])
      	if ((newsockfd = accept(sockfd, (struct sockaddr *) &cli_addr, &clilen)) == -1) {
         	error("ERROR on accept");
 		}
-
-		printf("Client length: %i \n", clilen));
-		printf("Hex: %s \n", cli_addr.sin_addr);
-		printf("IP: %s \n", inet_ntoa(cli_addr.sin_addr));
 		
 		/////////////////////
 		FILE *file_ptr;
